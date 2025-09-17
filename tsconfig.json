@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    // Do not emit any compiler output files (like JavaScript source code, source-maps or declarations) since Babel will be in charge of transpiling our code
+    "noEmit": true,
+
+    // Root of a project
+    "baseUrl": "./src",
+    // Module determines the type of import/export used (CommonJS, ES2022 etc.)
+    "module": "ES2022",
+    // ModuleResolution determines the algorithm used for finding/resolving modules
+    "moduleResolution": "node16",
+
+    // Target determines which JS functions are converted to run in older JavaScript runtimes
+    "target": "ES2022",
+    // Allows for React's JSX transform.
+    "jsx": "react-jsx",
+
+    // Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files
+    "allowJs": true,
+    // Enable error reporting in type-checked JavaScript files
+    "checkJs": true,
+
+    // Allow 'import XXX from YYY' when a module doesn't have a default export.
+    "esModuleInterop": true,
+    // All files must be "modules". To avoid merging any definitions into the global namespace ("script" files)
+    "isolatedModules": true,
+
+    // Turn on error reporting for unreachable code
+    "allowUnreachableCode": false,
+    // Turn on error reporting for unused labels
+    "allowUnusedLabels": false,
+    // Interpret optional property types as written, rather than adding undefined
+    "exactOptionalPropertyTypes": true,
+    // Check that any case inside a switch statement includes either break, return, or throw
+    "noFallthroughCasesInSwitch": true,
+    // Report errors on unused local variables
+    "noUnusedLocals": true,
+    // Report errors on unused parameters in functions
+    "noUnusedParameters": true,
+    // Enable error reporting when "this" is given the type "any"
+    "noImplicitThis": true,
+    // No implicit "any" types
+    "noImplicitAny": true,
+    // Check all code paths in a function to ensure they return a value (if necessary)
+    "noImplicitReturns": true,
+    // Enable all strict type-checking options
+    "strict": true,
+    // Ensure 'use strict' is always emitted
+    "alwaysStrict": true,
+    // Check that the arguments for bind, call, and apply methods match the original function
+    "strictBindCallApply": true,
+    // Strict "null" type checking
+    "strictNullChecks": true,
+    // Default catch clause variables as unknown instead of any
+    "useUnknownInCatchVariables": true,
+    // Make sure the import case is correct
+    "forceConsistentCasingInFileNames": true,
+    // Skip type checking all .d.ts files. This means that as long as you aren't using the incompatible parts of imported libraries, they'll compile just fine
+    "skipLibCheck": true,
+    // Enable importing .json files
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/**/*"],
+  "exclude": ["node_modules"]
+}

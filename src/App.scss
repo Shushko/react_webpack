@@ -1,0 +1,11 @@
+@use 'styles/fonts';
+@use 'styles/normalize';
+@use 'styles/variables' as *;
+
+html {
+  font-family: $defaultFontFamily;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+}

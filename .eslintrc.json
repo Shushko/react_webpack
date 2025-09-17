@@ -1,0 +1,83 @@
+{
+  "env": {
+    /* This section specifies the environment in which the code will run in.
+    In this case, it specifies that the code will run in a browser and use ES2022 features */
+    "browser": true,
+    "es2022": true
+  },
+  "extends": [
+    /* This section extends the configuration of other ESLint plugins.
+    It extends the recommended React, TypeScript and Prettier recommended configurations */
+    "eslint:recommended", // ESLint recommended rules
+    "plugin:react/recommended", // React specific linting rules for ESlint
+    "plugin:@typescript-eslint/recommended", // An ESLint plugin which provides lint rules for TypeScript codebases
+    "plugin:prettier/recommended", // Turns off rules that might conflict with Prettier. Adds Prettier rules to ESLint
+    "plugin:import/recommended"
+  ],
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        // Show an error if a function's return type is not explicitly defined unless it's an expression
+        "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }]
+      }
+    }
+  ],
+  // This section specifies the parser to use for parsing the code. In this case, it specifies the TypeScript parser
+  "parser": "@typescript-eslint/parser",
+  /* This section specifies the parser options.
+  In this case, it specifies that the code uses latest ECMAScript syntax, the source type as a module, and that it includes JSX syntax */
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  // This section specifies the ESLint plugins to use. In this case, it specifies the React, TypeScript, React Hooks and Prettier plugins
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  // This section specifies the settings for the ESLint plugins. In this case, it specifies the TypeScript resolver
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  // This section specifies the ESLint rules to use
+  "rules": {
+    // Next 2 rules are no longer necessary and can be turned off when we use "runtime: 'automatic'" in babel.config.js
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    // Turn off the ESLint rule that disallows unused variables
+    "no-unused-vars": "off",
+    // Turn on the TypeScript ESLint rule that disallows unused variables
+    "@typescript-eslint/no-unused-vars": "warn",
+    // Turn off the ESLint rule that disallows using variables before they are defined
+    "no-use-before-define": "off",
+    // Turn on the TypeScript ESLint rule that disallows using variables before they are defined (type, interface and enum).
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    // Show a warning if a file using JSX doesn't have a .tsx extension
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    // Show an error if an imported file doesn't have a .ts, .tsx or .json extension, except for packages
+    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never", "json": "never" }],
+    // Turn off the ESLint rule that disallows variable shadowing
+    "no-shadow": "off",
+    // Turn on the TypeScript ESLint rule that disallows variable shadowing
+    "@typescript-eslint/no-shadow": ["error"],
+    //  Show a warning if a line of code is longer than 120 characters, ignoring comments and URLs
+    "max-len": ["warn", { "code": 120, "ignoreComments": true, "ignoreUrls": true }],
+    // Show an error if React hooks are not used correctly
+    "react-hooks/rules-of-hooks": "error",
+    // Show a warning if the dependencies in a useEffect hook are not exhaustive
+    "react-hooks/exhaustive-deps": "warn",
+    // Turn off the ESLint rule that requires a default export when there is only one named export
+    "import/prefer-default-export": "off",
+    // Turn off the ESLint rule that requires prop types to be defined for React components
+    "react/prop-types": "off",
+    // Show an error if the code does not conform to Prettier's formatting rules
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  }
+}
